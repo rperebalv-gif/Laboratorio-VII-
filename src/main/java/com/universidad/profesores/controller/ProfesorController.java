@@ -22,17 +22,17 @@ public class ProfesorController {
     @PostMapping
     public ResponseEntity<Profesor> crear(@Valid @RequestBody Profesor profesor) {
         Profesor creado = service.crear(profesor);
-        return ResponseEntity.status(HttpStatus.CREATED).body(creado);   // 201
+        return ResponseEntity.status(HttpStatus.CREATED).body(creado);  
     }
 
     @GetMapping
     public ResponseEntity<List<Profesor>> listar(
             @RequestParam(required = false) String especialidad) {
-        return ResponseEntity.ok(service.listar(especialidad));          // 200
+        return ResponseEntity.ok(service.listar(especialidad));          
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Profesor> obtenerPorId(@PathVariable Long id) {
-        return ResponseEntity.ok(service.obtenerPorId(id));              // 200 o 404
+        return ResponseEntity.ok(service.obtenerPorId(id));              
     }
 }
